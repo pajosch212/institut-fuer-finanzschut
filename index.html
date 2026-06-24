@@ -1258,14 +1258,14 @@
       /* ─ Header ─ */
       header { padding: 0 16px; }
       .header-top {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        align-items: center;
         gap: 10px;
-        padding: 14px 0 10px;
+        padding: 8px 0 6px;
       }
-      .header-meta { text-align: left; }
+      .header-meta { display: none; }
       /* Logo: scale down on mobile */
-      .logo svg { width: 200px; height: 60px; }
+      .logo svg { width: 180px; height: 54px; }
       /* Nav: horizontal scroll */
       nav {
         overflow-x: auto;
@@ -1335,7 +1335,10 @@
       .expert-quote { padding: 14px 16px; gap: 12px; }
       .expert-quote-text { font-size: 14px; }
       .expert-photo { width: 44px; height: 44px; flex-shrink: 0; }
-      .expert-photo img { width: 44px; height: 44px; }
+      .expert-photo img { width: 44px; height: 44px; object-fit: cover; }
+      /* ─ Infobox label word wrap ─ */
+      .infobox-label { word-break: break-word; overflow-wrap: break-word; }
+      .infobox li { align-items: flex-start; }
 
       /* ─ Score table ─ */
       .score-row { grid-template-columns: 110px 1fr 38px; gap: 8px; padding: 12px 0; }
@@ -1490,15 +1493,12 @@
     </p>
 
     <div class="article-meta fade-up-4">
-      <span class="meta-author">Dr. Markus Eigenfeld</span>
+      <span class="meta-author" style="display:inline-flex;align-items:center;gap:7px;"><img src="foto seriöser mann portrait.png" alt="Dr. Markus Eigenfeld" style="width:24px;height:24px;border-radius:50%;object-fit:cover;border:1px solid #ddd;flex-shrink:0;">Dr. Markus Eigenfeld</span>
       <span>·</span>
       <span>11. Juni 2026</span>
       <span>·</span>
       <span>8 Min. Lesedauer</span>
-      <span>·</span>
-      <span>Testnote: <strong style="color:var(--red)">1,2</strong></span>
     </div>
-    <div class="page-info">Ausgabe 6/2026 &nbsp;·&nbsp; Seite 4 von 12 &nbsp;·&nbsp; Rubrik: Produkttests / Sicherheitstechnik</div>
   </div>
 
   </div>
@@ -1587,8 +1587,6 @@
         <li>Durchschnittlicher finanzieller Schaden bei Datenmissbrauch: <strong>14.219 €</strong></li>
       </ul>
     </div>
-
-    <p><em>[VIDEO: Überwachungskamera — Taschendiebstahl in unter 2 Sekunden — so schnell geht es.]</em></p>
 
     <h2>Was wirklich passiert — Stunde für Stunde</h2>
 
@@ -1962,7 +1960,7 @@
         <div class="cta-strip-title">Für sich. Für die Familie. Für alle die Ihnen wichtig sind.</div>
         <div class="cta-strip-sub">Ab 13,80 € · Familienrabatt ab 2 Stück · Kostenloser Versand aus Hamburg<br>90 Tage Geld-zurück-Garantie · Kauf auf Rechnung möglich</div>
       </div>
-      <a href="https://xn--schfer-sicherheitstechnik-nec.de/cart/58194976276805:1" class="btn-cta" target="_blank" rel="noopener">Jetzt Handyleine sichern →</a>
+      <a href="https://schäfer-sicherheitstechnik.de" class="btn-cta" target="_blank" rel="noopener">Jetzt Handyleine sichern →</a>
     </div>
 
   </div><!-- /body-text -->
@@ -2008,7 +2006,7 @@
           </div>
         </div>
         <div class="verdict-divider"></div>
-        <a href="https://xn--schfer-sicherheitstechnik-nec.de/cart/58194976276805:1" class="btn-primary" target="_blank" rel="noopener">→ Jetzt Handyleine sichern</a>
+        <a href="https://schäfer-sicherheitstechnik.de" class="btn-primary" target="_blank" rel="noopener">→ Jetzt Handyleine sichern</a>
         <a href="#testergebnis" class="btn-secondary">↓ Zum vollständigen Test</a>
         <p class="btn-note">Ab 13,80 € · Kostenloser Versand<br>90 Tage Geld-zurück-Garantie</p>
       </div>
@@ -2554,6 +2552,9 @@
     slide.addEventListener('click', () => { if (i !== vcIndex) vcGoTo(i); });
   });
   vcRender();
+  let vcTX = null;
+  vcRoot.addEventListener('touchstart', e => { vcTX = e.touches[0].clientX; }, {passive:true});
+  vcRoot.addEventListener('touchend', e => { if (vcTX !== null) { const dx = e.changedTouches[0].clientX - vcTX; if (Math.abs(dx) > 40) vcMove(dx < 0 ? 1 : -1); vcTX = null; } }, {passive:true});
 
   // ── VIDEO-CAROUSEL PRODUKT ──
   const vcpRoot   = document.getElementById('video-carousel-produkt');
@@ -2592,6 +2593,9 @@
     slide.addEventListener('click', () => { if (i !== vcpIndex) vcpGoTo(i); });
   });
   vcpRender();
+  let vcpTX = null;
+  vcpRoot.addEventListener('touchstart', e => { vcpTX = e.touches[0].clientX; }, {passive:true});
+  vcpRoot.addEventListener('touchend', e => { if (vcpTX !== null) { const dx = e.changedTouches[0].clientX - vcpTX; if (Math.abs(dx) > 40) vcpMove(dx < 0 ? 1 : -1); vcpTX = null; } }, {passive:true});
 </script>
 
 </body>
