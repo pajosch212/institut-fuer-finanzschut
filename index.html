@@ -470,8 +470,11 @@
       flex-shrink: 0;
       overflow: hidden;
       border: 2px solid var(--light);
+      background-size: cover;
+      background-position: top center;
+      background-repeat: no-repeat;
     }
-    .expert-photo img { width: 52px !important; height: 52px !important; object-fit: cover !important; object-position: top center; display: block; }
+    .expert-photo img { display: none; }
     .expert-quote-text {
       font-family: 'Fraunces', serif;
       font-size: 15px;
@@ -1328,7 +1331,6 @@
       .expert-quote { padding: 14px 16px; gap: 12px; }
       .expert-quote-text { font-size: 14px; }
       .expert-photo { width: 44px; height: 44px; flex-shrink: 0; overflow: hidden; }
-      .expert-photo img { width: 44px !important; height: 44px !important; object-fit: cover !important; object-position: top center; display: block; }
       /* ─ Infobox label word wrap ─ */
       .infobox-label { word-break: break-word; overflow-wrap: break-word; }
       .infobox li { align-items: flex-start; }
@@ -1800,35 +1802,35 @@
 
     <div class="expert-quotes">
       <div class="expert-quote">
-        <div class="expert-photo"><img src="polizist portrait mann mittlere alter.jpeg" alt="Ralf Steinberg"></div>
+        <div class="expert-photo" style="background-image:url('polizist portrait mann mittlere alter.jpeg')"></div>
         <div>
           <div class="expert-quote-text">"So etwas hätte ich jedem Opfer empfohlen. Ich verstehe nicht warum das nicht längst jeder hat — die Idee ist so simpel wie genial."</div>
           <div class="expert-quote-credit"><strong>Ralf Steinberg</strong> · Polizeihauptmeister, Hamburg · 22 Jahre Dienst</div>
         </div>
       </div>
       <div class="expert-quote">
-        <div class="expert-photo"><img src="foto seriöser mann portrait bisschen jünger.png" alt="Hans-Georg Mertens"></div>
+        <div class="expert-photo" style="background-image:url('foto seriöser mann portrait bisschen jünger.png')"></div>
         <div>
           <div class="expert-quote-text">"Keine App, keine PIN, kein Passwort. Ein mechanisches Seil. Genau das können die Täter nicht überwinden. Das macht dieses Produkt besonders."</div>
           <div class="expert-quote-credit"><strong>Hans-Georg Mertens</strong> · Kriminalkommissar, Hamburg · Dezernat Eigentumsdelikte</div>
         </div>
       </div>
       <div class="expert-quote">
-        <div class="expert-photo"><img src="foto portrait seriöse frau mittleres alter.png" alt="Katrin Lindemann"></div>
+        <div class="expert-photo" style="background-image:url('foto portrait seriöse frau mittleres alter.png')"></div>
         <div>
           <div class="expert-quote-text">"Wir sehen jede Woche Fälle — Handy weg, Konto leer, Bank lehnt Erstattung ab. Ab jetzt zeige ich meinen Kunden dieses Produkt. Immer."</div>
           <div class="expert-quote-credit"><strong>Katrin Lindemann</strong> · Bankberaterin, Commerzbank Frankfurt · 14 Jahre Erfahrung</div>
         </div>
       </div>
       <div class="expert-quote">
-        <div class="expert-photo"><img src="IT profi portrait.jpeg" alt="Stefan Brauer"></div>
+        <div class="expert-photo" style="background-image:url('IT profi portrait.jpeg')"></div>
         <div>
           <div class="expert-quote-text">"Aus IT-Sicht ist das genial — kein Software-Patch, kein Update, keine Einstellung. Physischer Schutz ist die einzige Maßnahme, die ein Angreifer wirklich nicht überwinden kann."</div>
           <div class="expert-quote-credit"><strong>Stefan Brauer</strong> · IT-Sicherheitsberater · 17 Jahre Erfahrung in Endpoint-Security</div>
         </div>
       </div>
       <div class="expert-quote">
-        <div class="expert-photo"><img src="foto seriöser mann portrait.png" alt="Thomas Wunderlich"></div>
+        <div class="expert-photo" style="background-image:url('foto seriöser mann portrait.png')"></div>
         <div>
           <div class="expert-quote-text">"Für 13,80 Euro schützt das ein Konto das vielleicht 50.000 Euro enthält. Das ist nicht die Stelle an der man sparen sollte."</div>
           <div class="expert-quote-credit"><strong>Thomas Wunderlich</strong> · Bankberater, Sparkasse München · Schwerpunkt Vermögensschutz</div>
