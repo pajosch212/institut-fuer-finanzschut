@@ -1246,14 +1246,7 @@
     @media (max-width: 600px) {
 
       /* ─ Topbar ─ */
-      .topbar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 3px;
-        padding: 8px 16px;
-        font-size: 10px;
-        letter-spacing: 0.05em;
-      }
+      .topbar { display: none; }
 
       /* ─ Header ─ */
       header { padding: 0 16px; }
@@ -1334,8 +1327,8 @@
       /* ─ Expert quotes ─ */
       .expert-quote { padding: 14px 16px; gap: 12px; }
       .expert-quote-text { font-size: 14px; }
-      .expert-photo { width: 44px; height: 44px; flex-shrink: 0; }
-      .expert-photo img { width: 44px; height: 44px; object-fit: cover; }
+      .expert-photo { width: 44px; height: 44px; flex-shrink: 0; overflow: hidden; }
+      .expert-photo img { width: 44px !important; height: 44px !important; object-fit: cover !important; display: block; }
       /* ─ Infobox label word wrap ─ */
       .infobox-label { word-break: break-word; overflow-wrap: break-word; }
       .infobox li { align-items: flex-start; }
@@ -1493,7 +1486,7 @@
     </p>
 
     <div class="article-meta fade-up-4">
-      <span class="meta-author" style="display:inline-flex;align-items:center;gap:7px;"><img src="foto seriöser mann portrait.png" alt="Dr. Markus Eigenfeld" style="width:24px;height:24px;border-radius:50%;object-fit:cover;border:1px solid #ddd;flex-shrink:0;">Dr. Markus Eigenfeld</span>
+      <span class="meta-author" style="display:inline-flex;align-items:center;gap:7px;"><img src="https://cdn.shopify.com/s/files/1/1068/1411/2069/files/eigenfeld.jpg?v=1782183696" alt="Dr. Markus Eigenfeld" style="width:24px;height:24px;border-radius:50%;object-fit:cover;border:1px solid #ddd;flex-shrink:0;">Dr. Markus Eigenfeld</span>
       <span>·</span>
       <span>11. Juni 2026</span>
       <span>·</span>
@@ -1920,39 +1913,6 @@
     <p>Schäfer-Sicherheitstechnik bietet einen <strong>Familienrabatt</strong> ab mehreren Stück. Das ist kein Marketing-Trick — das ist die logische Konsequenz: Wer selbst geschützt ist und seine Familie nicht schützt, hat nur die Hälfte getan.</p>
 
     <p>Bestellen Sie heute. Für sich. Und für alle, denen Sie erklären wollen, was in diesem Artikel steht — bevor es zu spät ist.</p>
-
-    <div class="test-scores">
-      <div class="score-row">
-        <div class="score-name">Haltekraft</div>
-        <div class="score-track"><div class="score-fill" style="width:98%;animation-delay:0.1s"></div></div>
-        <div class="score-num">1,0</div>
-      </div>
-      <div class="score-row">
-        <div class="score-name">Verarbeitung</div>
-        <div class="score-track"><div class="score-fill" style="width:91%;animation-delay:0.2s"></div></div>
-        <div class="score-num">1,2</div>
-      </div>
-      <div class="score-row">
-        <div class="score-name">Montage</div>
-        <div class="score-track"><div class="score-fill" style="width:95%;animation-delay:0.3s"></div></div>
-        <div class="score-num">1,1</div>
-      </div>
-      <div class="score-row">
-        <div class="score-name">Alltagstauglichkeit</div>
-        <div class="score-track"><div class="score-fill" style="width:87%;animation-delay:0.4s"></div></div>
-        <div class="score-num">1,3</div>
-      </div>
-      <div class="score-row">
-        <div class="score-name">Preis-Leistung</div>
-        <div class="score-track"><div class="score-fill" style="width:98%;animation-delay:0.5s"></div></div>
-        <div class="score-num">1,0</div>
-      </div>
-      <div class="score-row score-total">
-        <div class="score-name">Gesamtnote</div>
-        <div class="score-track"><div class="score-fill" style="width:90%;animation-delay:0.6s"></div></div>
-        <div class="score-num">1,2</div>
-      </div>
-    </div>
 
     <div class="cta-strip">
       <div>
@@ -2552,9 +2512,9 @@
     slide.addEventListener('click', () => { if (i !== vcIndex) vcGoTo(i); });
   });
   vcRender();
-  let vcTX = null;
-  vcRoot.addEventListener('touchstart', e => { vcTX = e.touches[0].clientX; }, {passive:true});
-  vcRoot.addEventListener('touchend', e => { if (vcTX !== null) { const dx = e.changedTouches[0].clientX - vcTX; if (Math.abs(dx) > 40) vcMove(dx < 0 ? 1 : -1); vcTX = null; } }, {passive:true});
+  let vcTX = null, vcTY = null;
+  vcRoot.addEventListener('touchstart', e => { vcTX = e.touches[0].clientX; vcTY = e.touches[0].clientY; }, {passive:true});
+  vcRoot.addEventListener('touchend', e => { if (vcTX === null) return; const dx = e.changedTouches[0].clientX - vcTX, dy = e.changedTouches[0].clientY - vcTY; if (Math.abs(dx) > 25 && Math.abs(dx) > Math.abs(dy) * 1.2) vcMove(dx < 0 ? 1 : -1); vcTX = vcTY = null; }, {passive:true});
 
   // ── VIDEO-CAROUSEL PRODUKT ──
   const vcpRoot   = document.getElementById('video-carousel-produkt');
@@ -2593,9 +2553,9 @@
     slide.addEventListener('click', () => { if (i !== vcpIndex) vcpGoTo(i); });
   });
   vcpRender();
-  let vcpTX = null;
-  vcpRoot.addEventListener('touchstart', e => { vcpTX = e.touches[0].clientX; }, {passive:true});
-  vcpRoot.addEventListener('touchend', e => { if (vcpTX !== null) { const dx = e.changedTouches[0].clientX - vcpTX; if (Math.abs(dx) > 40) vcpMove(dx < 0 ? 1 : -1); vcpTX = null; } }, {passive:true});
+  let vcpTX = null, vcpTY = null;
+  vcpRoot.addEventListener('touchstart', e => { vcpTX = e.touches[0].clientX; vcpTY = e.touches[0].clientY; }, {passive:true});
+  vcpRoot.addEventListener('touchend', e => { if (vcpTX === null) return; const dx = e.changedTouches[0].clientX - vcpTX, dy = e.changedTouches[0].clientY - vcpTY; if (Math.abs(dx) > 25 && Math.abs(dx) > Math.abs(dy) * 1.2) vcpMove(dx < 0 ? 1 : -1); vcpTX = vcpTY = null; }, {passive:true});
 </script>
 
 </body>
