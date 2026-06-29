@@ -2405,6 +2405,7 @@
 
   // ── VIDEO-CAROUSEL (3D Coverflow) ──
   const vcRoot   = document.getElementById('video-carousel');
+  if (vcRoot) {
   const vcSlides = vcRoot.querySelectorAll('.video-carousel-slide');
   const vcDots   = vcRoot.querySelectorAll('.video-carousel-dot');
   const vcCur    = document.getElementById('vc-cur');
@@ -2443,9 +2444,11 @@
   let vcTX = null, vcTY = null;
   vcRoot.addEventListener('touchstart', e => { vcTX = e.touches[0].clientX; vcTY = e.touches[0].clientY; }, {passive:true});
   vcRoot.addEventListener('touchend', e => { if (vcTX === null) return; const dx = e.changedTouches[0].clientX - vcTX, dy = e.changedTouches[0].clientY - vcTY; if (Math.abs(dx) > 25 && Math.abs(dx) > Math.abs(dy) * 1.2) vcMove(dx < 0 ? 1 : -1); vcTX = vcTY = null; }, {passive:true});
+  } // end vcRoot guard
 
   // ── VIDEO-CAROUSEL PRODUKT ──
   const vcpRoot   = document.getElementById('video-carousel-produkt');
+  if (vcpRoot) {
   const vcpSlides = vcpRoot.querySelectorAll('.video-carousel-slide');
   const vcpDots   = vcpRoot.querySelectorAll('.video-carousel-dot');
   const vcpCur    = document.getElementById('vcp-cur');
@@ -2484,6 +2487,7 @@
   let vcpTX = null, vcpTY = null;
   vcpRoot.addEventListener('touchstart', e => { vcpTX = e.touches[0].clientX; vcpTY = e.touches[0].clientY; }, {passive:true});
   vcpRoot.addEventListener('touchend', e => { if (vcpTX === null) return; const dx = e.changedTouches[0].clientX - vcpTX, dy = e.changedTouches[0].clientY - vcpTY; if (Math.abs(dx) > 25 && Math.abs(dx) > Math.abs(dy) * 1.2) vcpMove(dx < 0 ? 1 : -1); vcpTX = vcpTY = null; }, {passive:true});
+  } // end vcpRoot guard
 </script>
 
 </body>
