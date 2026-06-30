@@ -18,6 +18,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>578 Handys gestohlen — Was wirklich danach passiert | Finanzschutz-Institut</title>
 
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1039595498492149');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1039595498492149&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel Code -->
+
+  <!-- Click-ID Weitergabe: hängt fbclid an alle Shop-/Checkout-Links, damit Meta den Kauf der Anzeige zuordnen kann -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var qs = new URLSearchParams(window.location.search);
+    var fbclid = qs.get('fbclid');
+    if (!fbclid) return;
+    document.querySelectorAll('a[href]').forEach(function (a) {
+      var href = a.getAttribute('href');
+      if (!href) return;
+      if (/sicherheitstechnik|myshopify|bezahlung|checkout/i.test(href)) {
+        try {
+          var u = new URL(href, window.location.origin);
+          if (!u.searchParams.get('fbclid')) u.searchParams.set('fbclid', fbclid);
+          a.setAttribute('href', u.toString());
+        } catch (e) {}
+      }
+    });
+  });
+  </script>
+  <!-- End Click-ID Weitergabe -->
+
   <!-- FAVICON — Schild-Logo -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23f0ede6'/%3E%3Cpath d='M100 18 L172 52 L172 112 Q172 162 100 186 Q28 162 28 112 L28 52 Z' fill='%230a0a0a'/%3E%3Cpath d='M100 36 L158 65 L158 112 Q158 153 100 172 Q42 153 42 112 L42 65 Z' fill='%23c8001a'/%3E%3Ctext x='100' y='134' font-family='Arial,sans-serif' font-size='84' fill='%23ffffff' text-anchor='middle' font-weight='900' letter-spacing='-1'%3EFI%3C/text%3E%3C/svg%3E">
   <link rel="shortcut icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23f0ede6'/%3E%3Cpath d='M100 18 L172 52 L172 112 Q172 162 100 186 Q28 162 28 112 L28 52 Z' fill='%230a0a0a'/%3E%3Cpath d='M100 36 L158 65 L158 112 Q158 153 100 172 Q42 153 42 112 L42 65 Z' fill='%23c8001a'/%3E%3Ctext x='100' y='134' font-family='Arial,sans-serif' font-size='84' fill='%23ffffff' text-anchor='middle' font-weight='900' letter-spacing='-1'%3EFI%3C/text%3E%3C/svg%3E">
