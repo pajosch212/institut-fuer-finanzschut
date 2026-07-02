@@ -1671,12 +1671,12 @@
           <span class="rule"></span>
           <span class="tot">06</span>
         </div>
-        <div class="video-carousel-slide"><video src="1.mp4#t=0.1" controls playsinline preload="auto" muted></video></div>
-        <div class="video-carousel-slide"><video src="2.mp4#t=0.1" controls playsinline preload="auto" muted></video></div>
-        <div class="video-carousel-slide"><video src="3.mp4#t=0.1" controls playsinline preload="auto" muted></video></div>
-        <div class="video-carousel-slide"><video src="5.mp4#t=0.1" controls playsinline preload="auto" muted></video></div>
-        <div class="video-carousel-slide"><video src="6.mp4#t=0.1" controls playsinline preload="auto" muted></video></div>
-        <div class="video-carousel-slide"><video src="7.mp4#t=0.1" controls playsinline preload="auto" muted></video></div>
+        <div class="video-carousel-slide"><video loop src="1.mp4#t=0.1" controls playsinline preload="auto" muted></video></div>
+        <div class="video-carousel-slide"><video loop src="2.mp4#t=0.1" controls playsinline preload="auto" muted></video></div>
+        <div class="video-carousel-slide"><video loop src="3.mp4#t=0.1" controls playsinline preload="auto" muted></video></div>
+        <div class="video-carousel-slide"><video loop src="5.mp4#t=0.1" controls playsinline preload="auto" muted></video></div>
+        <div class="video-carousel-slide"><video loop src="6.mp4#t=0.1" controls playsinline preload="auto" muted></video></div>
+        <div class="video-carousel-slide"><video loop src="7.mp4#t=0.1" controls playsinline preload="auto" muted></video></div>
         <button class="video-carousel-arrow prev" aria-label="Vorheriges Video" onclick="vcMove(-1)">‹</button>
         <button class="video-carousel-arrow next" aria-label="Nächstes Video" onclick="vcMove(1)">›</button>
       </div>
@@ -1784,7 +1784,7 @@
 
     <div class="article-video-block">
       <div class="video-ratio">
-        <video src="Handy fallen lassen und runterwerfen.mp4#t=0.1" controls playsinline preload="auto" muted></video>
+        <video loop src="Handy fallen lassen und runterwerfen.mp4#t=0.1" controls playsinline preload="auto" muted></video>
       </div>
       <div class="article-video-caption">Falltest Redaktion · Handy wird mit vollem Schwung losgelassen</div>
     </div>
@@ -1797,7 +1797,7 @@
 
     <div class="article-video-block">
       <div class="video-ratio">
-        <video src="Starkes zerren an handyleine um zu zeigen wei stabil es ist.mp4#t=0.1" controls playsinline preload="auto" muted></video>
+        <video loop src="Starkes zerren an handyleine um zu zeigen wei stabil es ist.mp4#t=0.1" controls playsinline preload="auto" muted></video>
       </div>
       <div class="article-video-caption">Zerr-Test Redaktion · Maximale Kraft gegen das Seil — kein Nachgeben, kein Verrutschen des Clips</div>
     </div>
@@ -1810,7 +1810,7 @@
 
     <div class="article-video-block">
       <div class="video-ratio">
-        <video src="Handyleine Montage.mp4#t=0.1" controls playsinline preload="auto" muted></video>
+        <video loop src="Handyleine Montage.mp4#t=0.1" controls playsinline preload="auto" muted></video>
       </div>
       <div class="article-video-caption">Montage-Video · T-Stück, Hülle, Karabiner — in unter einer Minute befestigt</div>
     </div>
@@ -1832,7 +1832,7 @@
 
     <div class="article-video-block">
       <div class="video-ratio">
-        <video src="compressed_Normale Handynutzung mit  Handyleine.mp4#t=0.1" controls playsinline preload="auto" muted></video>
+        <video loop src="compressed_Normale Handynutzung mit  Handyleine.mp4#t=0.1" controls playsinline preload="auto" muted></video>
       </div>
       <div class="article-video-caption">Alltagstest Redaktion · Drei Wochen normaler Betrieb — tippen, telefonieren, fotografieren · das Seil fällt im Alltag nicht auf</div>
     </div>
@@ -2477,6 +2477,31 @@
   vcpRoot.addEventListener('touchstart', e => { vcpTX = e.touches[0].clientX; vcpTY = e.touches[0].clientY; }, {passive:true});
   vcpRoot.addEventListener('touchend', e => { if (vcpTX === null) return; const dx = e.changedTouches[0].clientX - vcpTX, dy = e.changedTouches[0].clientY - vcpTY; if (Math.abs(dx) > 25 && Math.abs(dx) > Math.abs(dy) * 1.2) vcpMove(dx < 0 ? 1 : -1); vcpTX = vcpTY = null; }, {passive:true});
   } // end vcpRoot guard
+</script>
+
+<!-- Video-Autoplay beim Scrollen (startet stumm im Sichtfeld, pausiert außerhalb) -->
+<script>
+(function(){
+  var vids = document.querySelectorAll('video');
+  if(!('IntersectionObserver' in window)){
+    // Fallback: einfach alle stumm starten
+    vids.forEach(function(v){ v.muted = true; v.play().catch(function(){}); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      var v = e.target;
+      if(e.isIntersecting){
+        v.muted = true;               // Autoplay-Policy: nur stumm erlaubt
+        var p = v.play();
+        if(p && p.catch) p.catch(function(){});
+      } else {
+        v.pause();
+      }
+    });
+  }, { threshold: 0.5 });             // startet, wenn ~halb sichtbar
+  vids.forEach(function(v){ io.observe(v); });
+})();
 </script>
 
 </body>
