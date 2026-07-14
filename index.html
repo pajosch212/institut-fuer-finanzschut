@@ -1654,6 +1654,34 @@
 
     <p>Die meisten Menschen denken: <em>"Mir passiert das nicht. Ich passe auf."</em> Das ist ein gefährlicher Irrtum — und er wird täglich 578 Mal widerlegt.</p>
 
+    <p>Wer immer noch denkt, dass es ihn nicht passieren kann, sollte sich diese Videos ansehen.</p>
+
+    <div class="video-carousel" id="video-carousel">
+      <div class="video-carousel-stage">
+        <div class="video-carousel-counter">
+          <span class="cur" id="vc-cur">01</span>
+          <span class="rule"></span>
+          <span class="tot">06</span>
+        </div>
+        <div class="video-carousel-slide"><video loop src="1.mp4#t=0.1" controls playsinline preload="auto" muted></video></div>
+        <div class="video-carousel-slide"><video loop src="2.mp4#t=0.1" controls playsinline preload="auto" muted></video></div>
+        <div class="video-carousel-slide"><video loop src="3.mp4#t=0.1" controls playsinline preload="auto" muted></video></div>
+        <div class="video-carousel-slide"><video loop src="5.mp4#t=0.1" controls playsinline preload="auto" muted></video></div>
+        <div class="video-carousel-slide"><video loop src="6.mp4#t=0.1" controls playsinline preload="auto" muted></video></div>
+        <div class="video-carousel-slide"><video loop src="7.mp4#t=0.1" controls playsinline preload="auto" muted></video></div>
+        <button class="video-carousel-arrow prev" aria-label="Vorheriges Video" onclick="vcMove(-1)">‹</button>
+        <button class="video-carousel-arrow next" aria-label="Nächstes Video" onclick="vcMove(1)">›</button>
+      </div>
+      <div class="video-carousel-dots">
+        <button class="video-carousel-dot is-active" aria-label="Video 1" onclick="vcGoTo(0)"></button>
+        <button class="video-carousel-dot" aria-label="Video 2" onclick="vcGoTo(1)"></button>
+        <button class="video-carousel-dot" aria-label="Video 3" onclick="vcGoTo(2)"></button>
+        <button class="video-carousel-dot" aria-label="Video 4" onclick="vcGoTo(3)"></button>
+        <button class="video-carousel-dot" aria-label="Video 5" onclick="vcGoTo(4)"></button>
+        <button class="video-carousel-dot" aria-label="Video 6" onclick="vcGoTo(5)"></button>
+      </div>
+    </div>
+
     <div class="presseschau">
       <div class="presseschau-label">Presseschau — echte Meldungen</div>
       <div class="press-item">
@@ -1739,34 +1767,6 @@
     <div class="pullquote">
       <p>Das ist nicht Pech. Das ist ein <span>Systemversagen</span> — und Sie zahlen die Rechnung dafür.</p>
       <div class="pullquote-source">— Redaktion Finanzschutz-Institut, Juni 2026</div>
-    </div>
-
-    <p>Wer denkt <em>"mir passiert das nicht"</em>, sollte sich einmal diese Videos ansehen — und danach die Geschichte von Thomas Schäfer lesen.</p>
-
-    <div class="video-carousel" id="video-carousel">
-      <div class="video-carousel-stage">
-        <div class="video-carousel-counter">
-          <span class="cur" id="vc-cur">01</span>
-          <span class="rule"></span>
-          <span class="tot">06</span>
-        </div>
-        <div class="video-carousel-slide"><video loop src="1.mp4#t=0.1" controls playsinline preload="auto" muted></video></div>
-        <div class="video-carousel-slide"><video loop src="2.mp4#t=0.1" controls playsinline preload="auto" muted></video></div>
-        <div class="video-carousel-slide"><video loop src="3.mp4#t=0.1" controls playsinline preload="auto" muted></video></div>
-        <div class="video-carousel-slide"><video loop src="5.mp4#t=0.1" controls playsinline preload="auto" muted></video></div>
-        <div class="video-carousel-slide"><video loop src="6.mp4#t=0.1" controls playsinline preload="auto" muted></video></div>
-        <div class="video-carousel-slide"><video loop src="7.mp4#t=0.1" controls playsinline preload="auto" muted></video></div>
-        <button class="video-carousel-arrow prev" aria-label="Vorheriges Video" onclick="vcMove(-1)">‹</button>
-        <button class="video-carousel-arrow next" aria-label="Nächstes Video" onclick="vcMove(1)">›</button>
-      </div>
-      <div class="video-carousel-dots">
-        <button class="video-carousel-dot is-active" aria-label="Video 1" onclick="vcGoTo(0)"></button>
-        <button class="video-carousel-dot" aria-label="Video 2" onclick="vcGoTo(1)"></button>
-        <button class="video-carousel-dot" aria-label="Video 3" onclick="vcGoTo(2)"></button>
-        <button class="video-carousel-dot" aria-label="Video 4" onclick="vcGoTo(3)"></button>
-        <button class="video-carousel-dot" aria-label="Video 5" onclick="vcGoTo(4)"></button>
-        <button class="video-carousel-dot" aria-label="Video 6" onclick="vcGoTo(5)"></button>
-      </div>
     </div>
 
     <h2 id="fallstudie">Fallstudie: Thomas Schäfer, 51, Hamburg</h2>
