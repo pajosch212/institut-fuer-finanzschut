@@ -437,6 +437,14 @@
     .warn p + p { margin-top: 8px; }
 
     /* ── INFO BOX ── */
+    .toc { border: 1px solid var(--light); border-top: 3px solid var(--black); padding: 24px; margin: 0 0 32px; background: var(--off); }
+    .toc-label { font-family: 'DM Mono', monospace; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid); margin-bottom: 14px; }
+    .toc ol { list-style: none; counter-reset: toc-counter; }
+    .toc li { counter-increment: toc-counter; padding: 7px 0; border-bottom: 1px solid var(--light); }
+    .toc li:last-child { border-bottom: none; }
+    .toc li::before { content: counter(toc-counter) '. '; font-weight: 600; color: var(--mid); }
+    .toc a { color: var(--black); text-decoration: none; font-size: 14.5px; }
+    .toc a:hover { text-decoration: underline; }
     .infobox { border: 1px solid var(--light); border-top: 3px solid var(--black); padding: 24px; margin: 28px 0; background: var(--off); }
     .infobox-label { font-family: 'DM Mono', monospace; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid); margin-bottom: 14px; }
     .infobox ul { list-style: none; }
@@ -1631,7 +1639,17 @@
   <!-- MAIN TEXT -->
   <div class="body-text">
 
-    <h2>Handy-Diebstahl: Nicht nur "den anderen"</h2>
+    <nav class="toc" aria-label="Inhaltsverzeichnis">
+      <div class="toc-label">Inhaltsverzeichnis</div>
+      <ol>
+        <li><a href="#diebstahl">Handy-Diebstahl: Nicht nur "den anderen"</a></li>
+        <li><a href="#ablauf">Was wirklich passiert — Stunde für Stunde</a></li>
+        <li><a href="#fallstudie">Fallstudie: Thomas Schäfer, 51, Hamburg</a></li>
+        <li><a href="#testergebnis">Der Test: Wir waren skeptisch — bis wir ihn in der Hand hatten</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="diebstahl">Handy-Diebstahl: Nicht nur "den anderen"</h2>
 
     <p>Die meisten Menschen denken: <em>"Mir passiert das nicht. Ich passe auf."</em> Das ist ein gefährlicher Irrtum — und er wird täglich 578 Mal widerlegt.</p>
 
@@ -1689,7 +1707,7 @@
       </div>
     </div>
 
-    <h2>Was wirklich passiert — Stunde für Stunde</h2>
+    <h2 id="ablauf">Was wirklich passiert — Stunde für Stunde</h2>
 
     <p>Die meisten denken: Handy weg, neues kaufen, fertig. <strong>Die Wahrheit ist eine andere.</strong></p>
 
@@ -1773,7 +1791,7 @@
       </div>
     </div>
 
-    <h2>Fallstudie: Thomas Schäfer, 51, Hamburg</h2>
+    <h2 id="fallstudie">Fallstudie: Thomas Schäfer, 51, Hamburg</h2>
 
     <p>Um zu verstehen, was Handy-Diebstahl wirklich bedeutet, haben wir den Gründer des Handyleine interviewt. Seine Geschichte ist kein Einzelfall — sie ist das Extrembeispiel dessen, was täglich 578 Mal beginnt.</p>
 
