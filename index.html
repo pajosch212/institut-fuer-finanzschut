@@ -444,7 +444,7 @@
     .toc li { counter-increment: toc-counter; padding: 7px 0; border-bottom: 1px solid var(--light); }
     .toc li:last-child { border-bottom: none; }
     .toc li::before { content: counter(toc-counter) '. '; font-weight: 600; color: var(--mid); }
-    .toc a { color: var(--black); text-decoration: none; font-size: 14.5px; }
+    .toc a { display: block; color: var(--black); text-decoration: none; font-size: 14.5px; white-space: normal; overflow-wrap: break-word; word-break: break-word; }
     .toc a:hover { text-decoration: underline; }
     .infobox { border: 1px solid var(--light); border-top: 3px solid var(--black); padding: 24px; margin: 28px 0; background: var(--off); }
     .infobox-label { font-family: 'DM Mono', monospace; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid); margin-bottom: 14px; }
